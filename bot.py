@@ -2,18 +2,14 @@ import os
 import time
 import logging
 import yt_dlp
-from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters, ContextTypes
 from telegram.request import HTTPXRequest
 
-# Load environment variables from .env file (local development)
-load_dotenv()
-
 # Get token from environment variable (SECURE - no hardcoding)
 TOKEN = os.environ.get('BOT_TOKEN')
 if not TOKEN:
-    raise ValueError("❌ No BOT_TOKEN found! Please set BOT_TOKEN in environment variables or .env file")
+    raise ValueError("❌ No BOT_TOKEN found! Please set BOT_TOKEN in environment variables")
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
